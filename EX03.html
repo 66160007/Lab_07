@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>ตัวอย่าง3</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        title>ตัวอย่างที่ 3</title>
+    </head>
+    <body>
+
+        <!-- สร้างฟอร์มสำหรับคำนวณพื้นที่สี่เหลี่ยม -->
+        <h3>คำนวณพื้นที่สี่เหลี่ยม</h3>
+
+        <label for="width">กว้าง:</label>
+        <input type="number" id="width" /><br />
+
+        <label for="length">ยาว:</label>
+        <input type="number" id="length" /><br />
+
+        <button onclick="calculateArea()">คำนวณ</button>
+
+        <p id="result"></p>
+
+        <script>
+            function calculateArea() {
+                // รับค่าความกว้างและความยาว
+                let width = parseFloat(document.getElementById("width").value);
+                let length = parseFloat(document.getElementById("length").value);
+
+                // ตรวจสอบว่าผู้ใช้ป้อนค่าหรือไม่
+                if (isNaN(width) || isNaN(length) || width <= 0 || length <= 0) {
+                    document.getElementById("result").textContent = "กรุณากรอกค่าที่ถูกต้อง (มากกว่า 0)";
+                    return;
+                }
+
+                // คำนวณพื้นที่
+                let area = width * length;
+
+                // แสดงผลลัพธ์
+                document.getElementById("result").textContent = "พื้นที่สี่เหลี่ยม = " + area + " ตารางหน่วย";
+            }
+        </script>
+    </body>
 </html>
